@@ -1,0 +1,28 @@
+name: "Syncthing"
+type: "sw.application"
+version: 1.18.5
+description: "Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized."
+post-provisioning: >-
+  ## Usage instructions
+
+  Once your device joins the fleet you'll need to allow some time for it to download the various services.
+
+  When it's done you should be able to access the access the app at <http://syncthing.local>.
+
+  Documentation for Syncthing can be found at <https://docs.syncthing.net/>.
+
+  Documentation for the Docker image can be found at <https://docs.linuxserver.io/images/docker-syncthing>.
+assets:
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/klutchell/balena-syncthing"
+  logo:
+    type: "blob.asset"
+    data:
+      url: "https://raw.githubusercontent.com/klutchell/balena-syncthing/main/logo.png"
+data:
+  defaultDeviceType: "raspberrypi4-64"
+  supportedDeviceTypes:
+    - "raspberrypi3-64"
+    - "raspberrypi4-64"
