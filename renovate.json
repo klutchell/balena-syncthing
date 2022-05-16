@@ -1,0 +1,24 @@
+{
+  "extends": ["config:base"],
+  "allowPostUpgradeCommandTemplating": true,
+  "allowedPostUpgradeCommands": ["^sed"],
+  "platform": "github",
+  "onboarding": false,
+  "packageRules": [
+    {
+      "matchPackageNames": [".*linuxserver/syncthing"],
+      "matchBaseBranches": ["main"],
+      "postUpgradeTasks": {
+        "commands": [
+          "sed \"s|^version: .*$|version: $(echo {{{newVersion}}} | sed -rn 's/^0*([1-9][0-9]*)\\.0*([1-9][0-9]*)\\.0*([1-9][0-9]*)$/\\1.\\2.\\3/p')|\" -i balena.yml"
+        ],
+        "fileFilters": ["balena.yml"],
+        "executionMode": "update"
+      }
+    }
+  ],
+  "repositories": ["klutchell/balena-syncthing"],
+  "rebaseWhen": "auto",
+  "automerge": false,
+  "labels": ["renovate"]
+}
