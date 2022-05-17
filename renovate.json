@@ -1,10 +1,5 @@
 {
   "extends": ["config:base"],
-  "allowPostUpgradeCommandTemplating": true,
-  "allowedPostUpgradeCommands": ["^sed"],
-  "platform": "github",
-  "onboarding": false,
-  "requireConfig": false,
   "packageRules": [
     {
       "matchPackagePatterns": [".*linuxserver/syncthing"],
@@ -17,9 +12,5 @@
         "executionMode": "update"
       }
     }
-  ],
-  "repositories": ["klutchell/balena-syncthing"],
-  "rebaseWhen": "auto",
-  "automerge": false,
-  "labels": ["renovate"]
+  ]
 }
