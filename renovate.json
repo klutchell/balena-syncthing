@@ -4,6 +4,7 @@
   "allowedPostUpgradeCommands": ["^sed"],
   "platform": "github",
   "onboarding": false,
+  "requireConfig": false,
   "packageRules": [
     {
       "matchPackagePatterns": [".*linuxserver/syncthing"],
