@@ -6,7 +6,7 @@
   "onboarding": false,
   "packageRules": [
     {
-      "matchPackageNames": [".*linuxserver/syncthing"],
+      "matchPackagePatterns": [".*linuxserver/syncthing"],
       "matchBaseBranches": ["main"],
       "postUpgradeTasks": {
         "commands": [
