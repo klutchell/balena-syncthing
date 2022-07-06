@@ -15,14 +15,24 @@ services:
     volumes:
       - config:/config
       - data:/data
-  # https://github.com/balenablocks/hostname
+
   hostname:
-    image: balenablocks/hostname
+    build: hostname
     restart: no
     labels:
       io.balena.features.supervisor-api: 1
     environment:
       SET_HOSTNAME: syncthing
+
+  restic:
+    build: restic
+    labels:
+      io.balena.features.supervisor-api: 1
+      io.balena.features.balena-socket: 1
+    volumes:
+      - restic:/cache
+
 volumes:
   config: {}
   data: {}
+  restic: {}
