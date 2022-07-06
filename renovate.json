@@ -4,10 +4,8 @@
     {
       "matchPackagePatterns": [".*linuxserver/syncthing"],
       "matchBaseBranches": ["main"],
+      "matchManagers": ["dockerfile"],
       "postUpgradeTasks": {
-        "matchManagers": [
-          "dockerfile"
-        ],
         "commands": [
           "sed \"s|^version: .*$|version: $(npx -q -y -- semver -c -l {{{newVersion}}})|\" -i balena.yml"
         ],
