@@ -1,15 +1,16 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-mapfile -t usb_devices < <(lsblk -J -O | jq -r '.blockdevices[] | 
-    select(.subsystems=="block:scsi:usb:platform" or .subsystems=="block:scsi:usb:pci:platform") | 
-    .path, .children[].path')
+# list all block devices that do not include the kernel boot partition
+root_uuid="$(cat /proc/cmdline | sed -rn 's/.*root=UUID=([^ ]+).*/\1/p')"
+mapfile -t block_devs < <(lsblk -J -O | jq -r --arg UUID "${root_uuid}" '.blockdevices[] | 
+    select(.children) | select( all(.children[]; .uuid != $UUID )) | .children[].path')
 
-# automount USB device partitions at /media/{UUID}
-if [ ${#usb_devices[@]} -gt 0 ]
+# automount block device partitions at /media/{UUID}
+if [ ${#block_devs[@]} -gt 0 ]
 then
-    echo "Found USB storage block devices: ${usb_devices[*]}"
-    for uuid in $(blkid -sUUID -ovalue "${usb_devices[@]}")
+    echo "Found block storage devices: ${block_devs[*]}"
+    for uuid in $(blkid -sUUID -ovalue "${block_devs[@]}")
     do
         {
             mkdir -pv /media/"${uuid}"
@@ -17,5 +18,5 @@ then
         } || continue
     done
 else
-    echo "No USB block storage devices found."
+    echo "No block storage devices found."
 fi
