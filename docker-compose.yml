@@ -7,7 +7,7 @@ services:
       PUID: "0"
       PGID: "0"
     ports:
-      - 80:8384
+      - 8384:8384
       - 22000:22000/tcp
       - 22000:22000/udp
       - 21027:21027/udp
@@ -42,7 +42,7 @@ services:
       PUID: "0"
       PGID: "0"
     ports:
-      - 8080:80/tcp
+      - 80:80/tcp
 
 volumes:
   config: {}
