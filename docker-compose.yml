@@ -32,7 +32,20 @@ services:
     volumes:
       - restic:/cache
 
+  # https://filebrowser.org/installation#docker
+  filebrowser:
+    build: filebrowser
+    volumes:
+      - data:/srv
+      - fb_database:/database
+    environment:
+      PUID: "0"
+      PGID: "0"
+    ports:
+      - 8080:80/tcp
+
 volumes:
   config: {}
   data: {}
   restic: {}
+  fb_database: {}
