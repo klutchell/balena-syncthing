@@ -1,6 +1,6 @@
 name: "Syncthing"
 type: "sw.application"
-version: 1.22.1
+version: 1.22.2
 description: "Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized."
 post-provisioning: >-
   ## Usage instructions
