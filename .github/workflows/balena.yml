@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        fleet: [gh_klutchell/syncthing-aarch64, gh_klutchell/syncthing-amd64, gh_klutchell/syncthing-armv7hf]
+        fleet: [gh_klutchell/syncthing-aarch64, gh_klutchell/syncthing-amd64]
 
     steps:
       - uses: actions/checkout@v3
