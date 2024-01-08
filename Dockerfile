@@ -1,5 +1,5 @@
 # https://docs.linuxserver.io/images/docker-syncthing
-FROM lscr.io/linuxserver/syncthing:1.26.1@sha256:c0f140e840115ccda573e05d83604b0aaa89e25cadff4edfd45c43f0843a8241
+FROM lscr.io/linuxserver/syncthing:1.27.2@sha256:a2220455e8db1ac9c6a39abfd36f796519e4790be84823e2d1132f4c9a0770df
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache bash blkid lsblk jq util-linux
