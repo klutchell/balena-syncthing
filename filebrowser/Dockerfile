@@ -1,3 +1,3 @@
-FROM filebrowser/filebrowser:v2.27.0-s6@sha256:cc3a001b5b8c977eb9bfe2d5f5d5eaa64329922dcd6f33d6f7850b8b3f788d82
+FROM filebrowser/filebrowser:v2.28.0-s6@sha256:8309d94cfbdc9fb20fc27b0a8e594925e99fa9ac8a4c5806702fe7518782dcc6
 
 COPY settings.json /config/
