@@ -4,9 +4,6 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        ".*linuxserver/syncthing"
-      ],
       "matchBaseBranches": [
         "main"
       ],
@@ -24,7 +21,10 @@
         ],
         "executionMode": "update"
       },
-      "automerge": false
+      "automerge": false,
+      "matchPackageNames": [
+        "/.*linuxserver/syncthing/"
+      ]
     }
   ]
 }
